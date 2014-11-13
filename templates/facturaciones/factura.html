@@ -1,0 +1,23 @@
+{% extends "usuarios/privado.html" %}
+{% block contenido %}
+<form action="" method="post">
+    {% csrf_token %}
+    <label>serie</label>
+    {{formulario.serie}}
+    <label>numero</label>
+    {{formulario.numero}}
+    <label>razon social</label>
+    {{formulario.cliente}}
+    <label>fecha</label>
+    {{formulario.fecha}}
+    <label>subtotal</label>
+    {{formulario.subtotal}}
+    <label>igv</label>
+    {{formulario.igv_total}}
+    <label>total</label>
+    {{formulario.total}}
+    <label>cajero</label>
+    {{formulario.usuario.username}}
+    <button type="submit/button">guardar</button>
+</form>
+{% endblock %}

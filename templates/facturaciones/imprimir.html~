@@ -1,0 +1,4 @@
+{% extends "usuarios/privado.html" %}
+{% block contenido %}
+<p>factura nsdsdlfksdñfñlsdkfñldkfñdsñfk</p>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "usuarios/privado.html" %}
+{% block contenido %}
+<p>Clientes registrados </p>
+<table>
+    <thead>
+        <th>ruc</th>
+        <th>razon social</th>
+        <th>direccion</th>
+    </thead>
+    <tbody>
+    {% for cliente in clientes %}
+        <td>{{cliente.ruc}}</td>
+        <td>{{cliente.razon_social}}</td>
+        <td>{{cliente.direccion}}</td>
+        <td><a href="/clienteEdit/{{cliente.id}}">editar</a></td>
+        <td><a href="/clienteDelete/{{cliente.id}}">borrar</a></td> 
+        {% empty %}
+        <tr>
+            <td>No hay Clientes registrados</td>
+        </tr>
+        {% endfor %}
+    </tbody>  
+    <a href="/clienteAdd/">agregar</a>
+{% endblock %}

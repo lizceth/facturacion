@@ -1,0 +1,17 @@
+
+<p>{{usuario.username|upper}}</p>
+	<h4>Bienvenido al Sistema de Facturación</h4>
+    <p>Es miembro desde el {{user.date_joined}}</p>      
+    <ul>
+        <li>
+            <a href="/factura">FACTURAR</a>
+        </li>            
+        <li>
+            <a href="/clientes">CLIENTES</a>
+        </li>
+        <li>
+            <a href="/productos">PRODUCTOS</a>
+        </li>
+    </ul>
+{% block contenido %}
+{% endblock %}
