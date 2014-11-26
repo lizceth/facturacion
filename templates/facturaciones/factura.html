@@ -1,23 +1,44 @@
 {% extends "usuarios/privado.html" %}
 {% block contenido %}
-<form action="" method="post">
-    {% csrf_token %}
-    <label>serie</label>
-    {{formulario.serie}}
-    <label>numero</label>
-    {{formulario.numero}}
-    <label>razon social</label>
-    {{formulario.cliente}}
-    <label>fecha</label>
-    {{formulario.fecha}}
-    <label>subtotal</label>
-    {{formulario.subtotal}}
-    <label>igv</label>
-    {{formulario.igv_total}}
-    <label>total</label>
-    {{formulario.total}}
-    <label>cajero</label>
-    {{formulario.usuario.username}}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <label>serie</label>
+        {{formulario2.serie}}
+        <br>
+        <label>numero</label>
+        {{formulario2.numero}}
+        <br>
+        <label>cliente</label>
+        {{formulario2.cliente}}
+        <br>
+        <label>producto</label>
+        {{formulario1.producto}}
+        <br>
+        <label>cantidad</label>
+        {{formulario1.cantidad}}
+        <br>
+        <label>importe</label>
+        {{formulario1.importe}}
+        <br>
+        <label>igv</label>
+        {{formulario1.igv}}
+        <br>
+        <label>subtotal</label>
+        {{formulario2.subtotal}}
+        <br>             
+        <label>igv total</label>
+        {{formulario2.igv_total}}
+        <br>   
+        <label>total a pagar</label>
+        {{formulario2.total}}
+        <br>   
+        <label>cajero:</label>
+        {{user.username}}
+        <br>   
     <button type="submit/button">guardar</button>
 </form>
+<button>
+    <a href="/detalle">agregar</a>
+</button>  
 {% endblock %}

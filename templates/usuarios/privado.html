@@ -13,6 +13,9 @@
     <h1>Sistema de Facturación</h1>
     <p>Venta de equipos Informaticos <strong>LLevando el futuro a tus manos</strong></p>
     <div class="usuario">{{usuario.username}}</div>
+    <button>
+        <a href="/cerrar">cerrar sesion</a>
+    </button>
 </header>
 
 <nav>
@@ -32,11 +35,13 @@
     
         {% block contenido %}
         {% endblock %}
-    
+        {% block footer %}
+
 </section>
 <footer>
-    <h3>Shiane Soft S.A.</h3>
+    <h3>System Soft S.A.</h3>
     <p>Un Mundo de Oportunidades</p>
 </footer>
 </body>
-</html>
+</html> 
+{% endblock %}

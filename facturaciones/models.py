@@ -13,8 +13,12 @@ class Producto(models.Model):
     nombre=models.CharField(max_length=50)
     precio_unit=models.FloatField()
     afecto=models.BooleanField(default=False)
+
+
     def __unicode__(self):
         return U"%s"%self.nombre
+
+
 
 class Factura(models.Model):
     serie=models.IntegerField(max_length=3)

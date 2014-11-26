@@ -30,7 +30,9 @@ urlpatterns = patterns('',
     url(r'^productoEdit/(?P<id>\d+)$','facturaciones.views.productoEdit'),
     url(r'^productoDelete/(?P<id>\d+)$','facturaciones.views.productoDelete'),
     url(r'^factura/$','facturaciones.views.factura'),
+    url(r'^detalle/$','facturaciones.views.detalle'),
     url(r'^imprimir/$', TemplateView.as_view(template_name='facturaciones/imprimir.html')),
+    url(r'^cerrar/$','facturaciones.views.cerrar'),
 )
 
 # Uncomment the next line to serve media files in dev.

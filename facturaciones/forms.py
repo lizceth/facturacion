@@ -18,7 +18,9 @@ class ProductoForm(ModelForm):
 class FacturaForm(ModelForm):
      class Meta:
          model = Factura
+         fields=('serie','numero','cliente','subtotal','igv_total','total',)
 
 class DetalleForm(ModelForm):
      class Meta:
          model = Detalle
+         fields=('producto','cantidad','importe','igv',)

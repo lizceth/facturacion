@@ -1,26 +1,30 @@
 {% extends "usuarios/privado.html" %}
 {% block contenido %}
 <p>Productos registrados </p>
-<table>
+    <a href="/productoAdd/">agregar</a>
+<table class="table table-striped">
     <thead>
-        <th>codigo</th>
-        <th>nombre</th>
-        <th>precio unitario</th>
-        <th>afecto</th>
+        <tr>
+            <th>codigo</th>
+            <th>nombre</th>
+            <th>precio unitario</th>
+            <th>afecto</th>
+        </tr>
     </thead>
     <tbody>
     {% for producto in productos %}
-        <td>{{producto.codigo}}</td>
-        <td>{{producto.nombre}}</td>
-        <td>{{producto.precio_unit}}</td>
-        <td>{{producto.categoria}}</td>
-        <td><a href="/productoEdit/{{producto.id}}">editar</a></td>
-        <td><a href="/productoDelete/{{producto.id}}">borrar</a></td> 
+        <tr>
+            <td>{{producto.codigo}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.precio_unit}}</td>
+            <td>{{producto.afecto}}</td>
+            <td><a href="/productoEdit/{{producto.id}}">editar</a></td>
+            <td><a href="/productoDelete/{{producto.id}}">borrar</a></td> 
+        <tr>
         {% empty %}
         <tr>
             <td>No hay Productos registrados</td>
         </tr>
         {% endfor %}
     </tbody>  
-    <a href="/productoAdd/">agregar</a>
 {% endblock %}

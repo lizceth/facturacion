@@ -11,14 +11,28 @@ from .forms import ClienteForm, ProductoForm, FacturaForm, DetalleForm
 
 def factura(request):
     if request.method=='POST':
-        formulario=FacturaForm(request.POST)
-        if formulario.is_valid():
-            formulario.save()
-            return HttpResponseRedirect('/imprimir')
+        formulario1=DetalleForm(request.POST)
+        formulario2=FacturaForm(request.POST)
+        if formulario1.is_valid() and formulario2.is_valid():
+            formulario1.save()
+            formulario2.save()
+            return HttpResponseRedirect('/admin')
     else:
-        formulario=FacturaForm()
+        formulario1=DetalleForm()
+        formulario2=FacturaForm()
     return render_to_response('facturaciones/factura.html',
-                              {'formulario':formulario},
+                              {'formulario1':formulario1,'formulario2':formulario2},
+                              context_instance=RequestContext(request))
+def detalle(request):
+    if request.method=='POST':
+        detalle=DetalleForm(request.POST)
+        if detalle.is_valid():
+            detalle.save()
+            return HttpResponseRedirect('/detalle')
+    else:
+        detalle=DetalleForm()
+    return render_to_response('facturaciones/detalle.html',
+                              {'detalle':detalle},
                               context_instance=RequestContext(request))
 
 def clientes(request):
@@ -56,7 +70,8 @@ def clienteDelete (request, id):
 def productos(request):
     productos=Producto.objects.all()
     return render(request, 'facturaciones/productos.html',
-                  {'productos':productos})
+                      {'productos':productos})
+
 
 def productoAdd(request):
     if request.method=='POST':
@@ -69,6 +84,18 @@ def productoAdd(request):
         return render_to_response('facturaciones/productoAdd.html',
                                   {'formulario':formulario},
                                   context_instance=RequestContext(request))
+"""
+if afecto==True:
+        porcentaje=0.18
+        igv=(float(precio_unit)*float(porcentanje))
+        unitario=(igv-precio_unit)
+        precio_unit=unitario
+    else:
+        porcentaje=0.18
+        igv=(float(precio_unit)*float(porcentanje))
+        total=(precio_unit+igv)
+        precio_unit=total
+"""
 
 def productoEdit (request, id):
         producto_edit= Producto.objects.get(pk=id)
